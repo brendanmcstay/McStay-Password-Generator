@@ -14,4 +14,4 @@
 - https://www.w3schools.com/jsref/jsref_classes.asp
 
 
-![Alt text](pwgenerator.jpg)
+![Picture Of Website](pwgenerator.jpg)
