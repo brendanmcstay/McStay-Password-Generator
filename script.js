@@ -25,24 +25,53 @@ function questions() {
       asknumbers: asknumbers,
       askspecial: askspecial
     }
+    if((length < 8)||(length > 128))
+    alert("Choose number between 8 and 128");
+    else if((!askuppercase)&&(!asklowercase)&&(!asknumbers)&&(!askspecial))
+    alert("Must choose at least one.");
+    else
+    isValid = true;
 
+  } while(!isValid);
+  return responses;
+}
+// This puts everything together and creates a password, how cool
+function generatePassword() {
+  var passwordoptions = questions();
+  var possibleCombonation = [];
+  var finalPW = "";
+
+  if (passwordoptions.askuppercase) {
+    for (var i of uppercase)
+      possibleCombonation.push(i);
+  }
+
+  if (passwordoptions.asklowercase) {
+    for (var i of lowercase)
+      possibleCombonation.push(i);
+  }
+
+  if (passwordoptions.asknumbers) {
+    for (var i of asknumbers) 
+      possibleCombonation.push(i);
+    }
+
+  if (passwordoptions.askspecial) {
+    for (var i of special)
+      possibleCombonation.push(i);
+  }
+
+  console.log(possibleCombonation);
+
+
+  for (var i=0;i < passwordoptions.length; i++) {
+    finalPW += possibleCombonation[Math.floor(Math.random() * possibleCombonation.length)];
 
   }
-}
+  console.log(finalPW);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+  return finalPW;
+  }
 
 // Write password to the #password input
 function writePassword() {
